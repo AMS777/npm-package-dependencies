@@ -11,6 +11,9 @@
 # production
 /build
 
+# ide
+.vscode/numbered-bookmarks.json
+
 # misc
 .DS_Store
 .env.local
