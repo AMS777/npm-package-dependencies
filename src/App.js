@@ -1,4 +1,5 @@
 import './styles/global.css';
+import './styles/components.css';
 
 import { Homepage } from './pages';
 

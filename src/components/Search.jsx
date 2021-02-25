@@ -7,8 +7,14 @@ import Button from '@material-ui/core/Button';
 function Search() {
   return (
     <Paper elevation={3}>
-      <form noValidate>
-        <TextField label="NPM package" variant="outlined" data-test="search-field" />
+      <form noValidate className="search-form">
+        <TextField
+          label="NPM package"
+          variant="outlined"
+          margin="dense"
+          className="search-field"
+          data-test="search-field"
+        />
         <Button variant="contained" color="primary" data-test="search-button">
           Search
         </Button>

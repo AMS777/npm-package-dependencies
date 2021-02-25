@@ -1,0 +1,6 @@
+.search-form {
+  display: flex;
+  padding: 1em;
+  justify-content: center;
+  gap: 1em;
+}
