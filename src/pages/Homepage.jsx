@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Search } from '../components';
+import { Search, PackageDependencies } from '../components';
 
 import Typography from '@material-ui/core/Typography';
 
@@ -14,6 +14,7 @@ function Homepage() {
         This application takes the name of an NPM package and lists its dependencies.
       </Typography>
       <Search />
+      <PackageDependencies />
     </>
   );
 }

@@ -4,3 +4,7 @@
   justify-content: center;
   gap: 1em;
 }
+
+.package-dependencies {
+  padding: 1em;
+}
