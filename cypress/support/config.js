@@ -16,3 +16,7 @@ export const ids = {
     treeView: '[data-test=package-dependencies-tree-view]',
   },
 };
+
+export const texts = {
+  packageName: 'express',
+};

@@ -1,4 +1,4 @@
-import { urls, ids } from '../support/config';
+import { urls, ids, texts } from '../support/config';
 
 describe('Homepage', () => {
   beforeEach(() => {
@@ -20,5 +20,11 @@ describe('Homepage', () => {
   it('has package title and tree view', () => {
     cy.get(ids.packageDependencies.title).should('exist');
     cy.get(ids.packageDependencies.treeView).should('exist');
+  });
+
+  it.only('when a package is searched, the package title updates', () => {
+    cy.get(ids.search.field).find('input').type(texts.packageName);
+    cy.get(ids.search.button).click();
+    cy.get(ids.packageDependencies.title).should('contain', texts.packageName);
   });
 });
