@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { PackageContextProvider } from '../context';
+
 import { Search, PackageDependencies } from '../components';
 
 import Typography from '@material-ui/core/Typography';
@@ -13,8 +15,10 @@ function Homepage() {
       <Typography variant="subtitle1" gutterBottom data-test="homepage-description">
         This application takes the name of an NPM package and lists its dependencies.
       </Typography>
-      <Search />
-      <PackageDependencies />
+      <PackageContextProvider>
+        <Search />
+        <PackageDependencies />
+      </PackageContextProvider>
     </>
   );
 }
