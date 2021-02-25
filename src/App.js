@@ -1,11 +1,9 @@
 import './styles/global.css';
 
+import { Homepage } from './pages';
+
 function App() {
-  return (
-    <div>
-      NPM package dependencies
-    </div>
-  );
+  return <Homepage />;
 }
 
 export default App;
