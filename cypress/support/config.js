@@ -11,4 +11,8 @@ export const ids = {
     field: '[data-test=search-field]',
     button: '[data-test=search-button]',
   },
+  packageDependencies: {
+    title: '[data-test=package-dependencies-title]',
+    treeView: '[data-test=package-dependencies-tree-view]',
+  },
 };

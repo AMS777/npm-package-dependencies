@@ -5,7 +5,7 @@ describe('Search', () => {
     cy.visit(urls.homepage);
   });
 
-  it('has title and description', () => {
+  it('has search field and button', () => {
     cy.get(ids.search.field).should('exist');
     cy.get(ids.search.button).should('exist');
   });
