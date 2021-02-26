@@ -28,9 +28,14 @@ describe('Homepage', () => {
     cy.get(ids.packageDependencies.title).should('contain', texts.package.name);
   });
 
-  it('when a package is searched, the package dependencies update', () => {
+  it('when a package is searched, the package dependencies tree update', () => {
+    cy.intercept('GET', urls.package, { fixture: 'package.json' }).as('getPackage');
+
     cy.get(ids.search.field).find('input').type(texts.package.name);
     cy.get(ids.search.button).click();
+
+    cy.wait('@getPackage').its('response.body').should('have.property', 'name', texts.package.name);
+
     texts.package.dependencies.forEach(dependency => {
       cy.get(ids.packageDependencies.treeView).should('contain', dependency);
     });
