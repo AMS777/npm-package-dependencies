@@ -18,5 +18,8 @@ export const ids = {
 };
 
 export const texts = {
-  packageName: 'express',
+  package: {
+    name: 'express',
+    dependencies: ['content-type', 'proxy-addr', 'serve-static'],
+  },
 };

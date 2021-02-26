@@ -22,9 +22,17 @@ describe('Homepage', () => {
     cy.get(ids.packageDependencies.treeView).should('exist');
   });
 
-  it.only('when a package is searched, the package title updates', () => {
-    cy.get(ids.search.field).find('input').type(texts.packageName);
+  it('when a package is searched, the package title updates', () => {
+    cy.get(ids.search.field).find('input').type(texts.package.name);
     cy.get(ids.search.button).click();
-    cy.get(ids.packageDependencies.title).should('contain', texts.packageName);
+    cy.get(ids.packageDependencies.title).should('contain', texts.package.name);
+  });
+
+  it('when a package is searched, the package dependencies update', () => {
+    cy.get(ids.search.field).find('input').type(texts.package.name);
+    cy.get(ids.search.button).click();
+    texts.package.dependencies.forEach(dependency => {
+      cy.get(ids.packageDependencies.treeView).should('contain', dependency);
+    });
   });
 });
