@@ -1,6 +1,8 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 
+import { makeNpmPackageUrl } from '../utils/urls';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const getSubdependencies = npmPackage => {
@@ -18,7 +20,7 @@ const getSubdependencies = npmPackage => {
 function OnePackageDependencies({ packageName }) {
   const { data, isLoading } = useQuery({
     queryKey: packageName,
-    queryFn: () => fetch(`/${packageName}/latest`).then(response => response.json()),
+    queryFn: () => fetch(makeNpmPackageUrl(packageName)).then(response => response.json()),
     enabled: !!packageName,
   });
 

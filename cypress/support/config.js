@@ -1,10 +1,5 @@
 export const urls = {
   homepage: '/',
-  package: '/test-package/latest',
-  dependency1Level: '/dependency-1-level/latest',
-  dependency1Level2: '/dependency-1-level-2/latest',
-  dependency2Level: '/dependency-2-level/latest',
-  dependency3Level: '/dependency-3-level/latest',
 };
 
 export const ids = {
@@ -19,6 +14,13 @@ export const ids = {
   packageDependencies: {
     title: '[data-test=package-dependencies-title]',
     treeView: '[data-test=package-dependencies-tree-view]',
+  },
+  packages: {
+    package: 'test-package',
+    dependency1Level: 'dependency-1-level',
+    dependency1Level2: 'dependency-1-level-2',
+    dependency2Level: 'dependency-2-level',
+    dependency3Level: 'dependency-3-level',
   },
 };
 
