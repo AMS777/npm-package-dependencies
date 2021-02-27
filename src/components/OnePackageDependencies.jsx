@@ -7,7 +7,7 @@ const getSubdependencies = npmPackage => {
   }
 
   const subdependencies = Object.keys(npmPackage.dependencies).map(packageName => (
-    <OnePackageDependencies packageName={packageName} />
+    <OnePackageDependencies packageName={packageName} key={packageName} />
   ));
 
   return subdependencies;
@@ -23,7 +23,7 @@ function OnePackageDependencies({ packageName }) {
   const subdependencies = getSubdependencies(data);
 
   return (
-    <li key={packageName}>
+    <li>
       {data === 'Not Found' && 'Package not found: '}
       {isLoading ? 'Loading...' : packageName}
       {!!subdependencies && <ol>{subdependencies}</ol>}
