@@ -9,7 +9,7 @@
   padding: 1em;
 }
 
-.package-dependencies ul {
+.package-dependencies .parent-npm-package {
   display: inline-block;
   text-align: left;
 }

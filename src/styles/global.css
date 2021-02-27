@@ -20,3 +20,18 @@ code {
 body .MuiFormControl-marginDense {
   margin: 0;
 }
+
+ol {
+  padding-left: 1em;
+  counter-reset: section;
+  list-style-type: none;
+}
+
+li {
+  font-family: courier;
+}
+
+li::before {
+  counter-increment: section;
+  content: counters(section, '.') ': ';
+}
