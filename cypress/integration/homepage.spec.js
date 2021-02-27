@@ -19,6 +19,10 @@ describe('Homepage', () => {
 
   it('has package title and tree view', () => {
     cy.get(ids.packageDependencies.title).should('exist');
+
+    cy.get(ids.packageDependencies.treeView).should('not.exist');
+    cy.get(ids.search.field).find('input').type(texts.package.name);
+    cy.get(ids.search.button).click();
     cy.get(ids.packageDependencies.treeView).should('exist');
   });
 
@@ -28,7 +32,7 @@ describe('Homepage', () => {
     cy.get(ids.packageDependencies.title).should('contain', texts.package.name);
   });
 
-  it.only('when a package is searched, the package dependencies tree updates', () => {
+  it('when a package is searched, the package dependencies tree updates', () => {
     cy.intercept('GET', urls.package, { fixture: 'package.json' }).as('getPackage');
     cy.intercept('GET', urls.dependency1Level, { fixture: 'dependency1Level.json' });
     cy.intercept('GET', urls.dependency1Level2, { fixture: 'noDependencies.json' });
