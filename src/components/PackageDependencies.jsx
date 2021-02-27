@@ -21,7 +21,7 @@ function PackageDependencies() {
     ? `Package not found: ${packageContext.name}`
     : `Dependencies of: ${packageContext.name}`;
 
-  const validPackage = !!packageContext.name && data !== 'Not Found';
+  const validPackage = !!packageContext.name && !!data && data !== 'Not Found';
 
   return (
     <Paper elevation={3} className="package-dependencies">
