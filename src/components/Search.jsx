@@ -16,7 +16,9 @@ function Search() {
 
   const handleSearch = event => {
     event.preventDefault();
-    packageContext.setName(packageName);
+    const trimmedPackageName = packageName.trim();
+    setPackageName(trimmedPackageName);
+    packageContext.setName(trimmedPackageName);
   };
 
   return (
