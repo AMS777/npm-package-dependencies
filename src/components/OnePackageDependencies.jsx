@@ -1,6 +1,8 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 const getSubdependencies = npmPackage => {
   if (!npmPackage?.dependencies || Object.keys(npmPackage.dependencies).length === 0) {
     return;
@@ -25,7 +27,7 @@ function OnePackageDependencies({ packageName }) {
   return (
     <li>
       {data === 'Not Found' && 'Package not found: '}
-      {isLoading ? 'Loading...' : packageName}
+      {isLoading ? <CircularProgress size="0.8em" /> : packageName}
       {!!subdependencies && <ol>{subdependencies}</ol>}
     </li>
   );
