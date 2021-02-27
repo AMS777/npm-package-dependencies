@@ -30,6 +30,10 @@ describe('Homepage', () => {
 
   it.only('when a package is searched, the package dependencies tree updates', () => {
     cy.intercept('GET', urls.package, { fixture: 'package.json' }).as('getPackage');
+    cy.intercept('GET', urls.dependency1Level, { fixture: 'dependency1Level.json' });
+    cy.intercept('GET', urls.dependency1Level2, { fixture: 'noDependencies.json' });
+    cy.intercept('GET', urls.dependency2Level, { fixture: 'dependency2Level.json' });
+    cy.intercept('GET', urls.dependency3Level, { fixture: 'noDependencies.json' });
 
     cy.get(ids.search.field).find('input').type(texts.package.name);
     cy.get(ids.search.button).click();

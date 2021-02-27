@@ -1,0 +1,6 @@
+{
+  "name": "dependency-2-level",
+  "dependencies": {
+    "dependency-3-level": "~1.0.4"
+  }
+}

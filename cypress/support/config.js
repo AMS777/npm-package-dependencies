@@ -1,6 +1,10 @@
 export const urls = {
   homepage: '/',
-  package: '/express/latest',
+  package: '/test-package/latest',
+  dependency1Level: '/dependency-1-level/latest',
+  dependency1Level2: '/dependency-1-level-2/latest',
+  dependency2Level: '/dependency-2-level/latest',
+  dependency3Level: '/dependency-3-level/latest',
 };
 
 export const ids = {
@@ -20,7 +24,12 @@ export const ids = {
 
 export const texts = {
   package: {
-    name: 'express',
-    dependencies: ['content-type', 'proxy-addr', 'serve-static'],
+    name: 'test-package',
+    dependencies: [
+      'dependency-1-level',
+      'dependency-1-level-2',
+      'dependency-2-level',
+      'dependency-3-level',
+    ],
   },
 };
