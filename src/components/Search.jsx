@@ -14,15 +14,17 @@ function Search() {
     setPackageName(event.target.value);
   };
 
-  const handleSearch = () => {
-    packageContext.setPackageName(packageName);
+  const handleSearch = event => {
+    event.preventDefault();
+    packageContext.setName(packageName);
   };
 
   return (
     <Paper elevation={3}>
-      <form noValidate className="search-form">
+      <form noValidate className="search-form" onSubmit={handleSearch}>
         <TextField
           label="NPM package"
+          name="npmPackage"
           value={packageName}
           onChange={handleChangeSearchField}
           variant="outlined"
@@ -31,7 +33,7 @@ function Search() {
           data-test="search-field"
         />
         <Button
-          onClick={event => handleSearch(event)}
+          onClick={handleSearch}
           variant="contained"
           color="primary"
           data-test="search-button"

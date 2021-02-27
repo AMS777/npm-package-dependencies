@@ -1,6 +1,6 @@
 export const urls = {
   homepage: '/',
-  package: 'https://registry.npmjs.org/express/latest',
+  package: '/express/latest',
 };
 
 export const ids = {

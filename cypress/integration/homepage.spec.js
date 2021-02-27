@@ -28,7 +28,7 @@ describe('Homepage', () => {
     cy.get(ids.packageDependencies.title).should('contain', texts.package.name);
   });
 
-  it('when a package is searched, the package dependencies tree update', () => {
+  it.only('when a package is searched, the package dependencies tree updates', () => {
     cy.intercept('GET', urls.package, { fixture: 'package.json' }).as('getPackage');
 
     cy.get(ids.search.field).find('input').type(texts.package.name);

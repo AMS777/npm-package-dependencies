@@ -8,3 +8,8 @@
 .package-dependencies {
   padding: 1em;
 }
+
+.package-dependencies ul {
+  display: inline-block;
+  text-align: left;
+}

@@ -3,11 +3,11 @@ import React, { createContext, useState } from 'react';
 const PackageContext = createContext();
 
 function PackageContextProvider({ children }) {
-  const [packageName, setPackageName] = useState('');
+  const [name, setName] = useState('');
 
   const packageContextValue = {
-    packageName,
-    setPackageName,
+    name,
+    setName,
   };
 
   return <PackageContext.Provider value={packageContextValue}>{children}</PackageContext.Provider>;

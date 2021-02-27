@@ -54,6 +54,7 @@
     "api"
   ],
   "dependencies": {
+    "---data-from-fixture---": "0.0.0",
     "accepts": "~1.3.7",
     "array-flatten": "1.1.1",
     "body-parser": "1.19.0",

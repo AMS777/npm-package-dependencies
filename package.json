@@ -2,6 +2,14 @@
   "name": "npm-package-dependencies",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://registry.npmjs.org",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "cypress:open": "cypress open",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@testing-library/jest-dom": "^5.11.9",
@@ -14,12 +22,10 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "cypress:open": "cypress open",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "cypress": "^6.5.0",
+    "eslint-plugin-chai-friendly": "^0.6.0",
+    "eslint-plugin-cypress": "^2.11.2"
   },
   "eslintConfig": {
     "extends": [
@@ -38,10 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cypress": "^6.5.0",
-    "eslint-plugin-chai-friendly": "^0.6.0",
-    "eslint-plugin-cypress": "^2.11.2"
   }
 }
