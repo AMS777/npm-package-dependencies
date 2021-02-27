@@ -9,11 +9,11 @@ import Typography from '@material-ui/core/Typography';
 function PackageDependencies() {
   const packageContext = useContext(PackageContext);
 
-  const { data, isLoading } = useQuery(
-    packageContext.name,
-    () => fetch(`/${packageContext.name}/latest`).then(response => response.json()),
-    { enabled: !!packageContext.name },
-  );
+  const { data, isLoading } = useQuery({
+    queryKey: packageContext.name,
+    queryFn: () => fetch(`/${packageContext.name}/latest`).then(response => response.json()),
+    enabled: !!packageContext.name,
+  });
 
   const sectionTitle = !packageContext.name
     ? '- Search a package to list its dependencies -'
