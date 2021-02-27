@@ -1,6 +1,10 @@
 # NPM Package Dependencies
 
-This application takes the name of an NPM package and lists its dependencies.
+This application takes the name of an [NPM package](https://www.npmjs.com/) and lists its dependencies recursively.
+
+It caches the NPM packages with [React Query](https://react-query.tanstack.com/).
+
+It's developed with TDD/BDD with [Cypress](https://www.cypress.io/).
 
 ## Install
 
