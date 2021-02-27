@@ -20,40 +20,39 @@ function PackageDependencies() {
 
   useEffect(() => {
     const getSubdependencies = async npmPackage => {
-      if (!npmPackage.dependencies) {
+      if (!npmPackage.dependencies || Object.keys(npmPackage.dependencies).length === 0) {
         return;
       }
 
       const subdependencies = await Promise.all(
-        Object.entries(npmPackage.dependencies).map(async dependency => {
-          const dependencies = await getDependencies(dependency[0]);
-          return dependencies;
-        }),
+        Object.entries(npmPackage.dependencies).map(
+          async ([packageName]) => await getDependencies(packageName),
+        ),
       );
 
       return subdependencies;
     };
 
-    const getDependencies = async name => {
-      if (!name) {
+    const getDependencies = async packageName => {
+      if (!packageName) {
         return;
       }
 
-      const npmPackage = await getPackage(name);
+      const npmPackage = await getPackage(packageName);
 
       const subdependencies = await getSubdependencies(npmPackage);
 
       return (
-        <li key={name}>
-          {name}
-          <ol>{subdependencies}</ol>
+        <li key={packageName}>
+          {packageName}
+          {!!subdependencies && <ol>{subdependencies}</ol>}
         </li>
       );
     };
 
     const fetchDependencies = async () => {
-      const d = await getDependencies(packageContext.name);
-      setDependencies(<ol className="parent-npm-package">{d}</ol>);
+      const dependencies = await getDependencies(packageContext.name);
+      setDependencies(<ol className="parent-npm-package">{dependencies}</ol>);
     };
 
     fetchDependencies();
