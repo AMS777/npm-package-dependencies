@@ -38,3 +38,39 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
+
+## Known errors
+
+The NPM registry API doesn't include the `Access-Control-Allow-Origin` header in the response. This makes it not possible to read the responses from a frontend like this application.
+
+This application can use the NPM registry API with a local server, changing:
+
+**src/utils/urls.js:**
+
+```
+export function makeNpmPackageUrl(packageName) {
+  return `https://registry.npmjs.org/${packageName}/latest`;
+}
+```
+
+with:
+
+**src/utils/urls.js:**
+
+```
+export function makeNpmPackageUrl(packageName) {
+  return `/${packageName}/latest`;
+}
+```
+
+while having:
+
+**package.json:**
+
+```
+{
+  ...
+  "proxy": "https://registry.npmjs.org",
+  ...
+}
+```
