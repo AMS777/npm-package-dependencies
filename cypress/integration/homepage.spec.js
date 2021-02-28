@@ -22,12 +22,19 @@ describe('Homepage', () => {
     cy.get(ids.packageDependencies.title).should('exist');
 
     cy.get(ids.packageDependencies.treeView).should('not.exist');
+
+    cy.intercept('GET', makeNpmPackageUrl(ids.packages.package), {
+      fixture: 'noDependencies.json',
+    });
     cy.get(ids.search.field).find('input').type(texts.package.name);
     cy.get(ids.search.button).click();
     cy.get(ids.packageDependencies.treeView).should('exist');
   });
 
   it('when a package is searched, the package title updates', () => {
+    cy.intercept('GET', makeNpmPackageUrl(ids.packages.package), {
+      fixture: 'noDependencies.json',
+    });
     cy.get(ids.search.field).find('input').type(texts.package.name);
     cy.get(ids.search.button).click();
     cy.get(ids.packageDependencies.title).should('contain', texts.package.name);
